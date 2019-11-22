@@ -62,11 +62,12 @@
 	
 	for (let dataSourceId in dashboarddatasources) {
 		
-      const dataSource = dataSources[dataSourceId];
+               const dataSource = dataSources[dataSourceId];
 	  
 		dataSource.refreshAsync().then(function () {
 		  console.log(dataSource.name + ': Refreshed Successfully');
 		});
+	}
   }
 
   // Constructs UI that displays all the dataSources in this dashboard
