@@ -63,9 +63,9 @@
    /* dataSource.refreshAsync().then(function () {
       console.log(dataSource.name + ': Refreshed Successfully');
     });*/
-	  for (let dataSource in dashboarddatasources) {
+	  for (let dataSourceId in dashboarddatasources) {
 		
-               const dataSource = dataSources[dataSourceId];
+               const dataSource = dashboarddatasources[dataSourceId];
 		dataSource.refreshAsync().then(function () {
 		  console.log(dataSource.name + ': Refreshed Successfully');
 		});
