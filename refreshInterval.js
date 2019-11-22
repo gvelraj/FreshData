@@ -46,9 +46,9 @@
   var myVar;
   var dashboarddatasources = {};
   
-  function refreshStart(){
+  function refreshStart(dataSource){
 	  
-	  myVar = setInterval("refreshDataSource()", 30000);
+	  myVar = setInterval(function() { refreshDataSource(dataSource); }, 30000);
   }
   
   function refreshStop(){
@@ -58,16 +58,19 @@
   
   // Refreshes the given dataSource.
   //function refreshDataSource (dataSource) {
-  function refreshDataSource () {
+  function refreshDataSource (dataSource) {
 	
-	for (let dataSourceId in dashboarddatasources) {
+    dataSource.refreshAsync().then(function () {
+      console.log(dataSource.name + ': Refreshed Successfully');
+    });
+	  /*for (let dataSourceId in dashboarddatasources) {
 		
                const dataSource = dataSources[dataSourceId];
 	  
 		dataSource.refreshAsync().then(function () {
 		  console.log(dataSource.name + ': Refreshed Successfully');
 		});
-	}
+	}*/
   }
 
   // Constructs UI that displays all the dataSources in this dashboard
@@ -91,7 +94,7 @@
       refreshButton.innerHTML = ('Keep Fresh Data');
       refreshButton.type = 'button';
       refreshButton.className = 'btn btn-primary';
-      refreshButton.addEventListener('click', function () { refreshStart(); });
+      refreshButton.addEventListener('click', function () { refreshStart(dataSource); });
 	  
 	  let stoprefreshButton = document.createElement('button');
       stoprefreshButton.innerHTML = ('Stop Refresh cycle');
