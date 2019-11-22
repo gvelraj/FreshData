@@ -60,17 +60,17 @@
   //function refreshDataSource (dataSource) {
   function refreshDataSource (dataSource) {
 	
-    dataSource.refreshAsync().then(function () {
+   /* dataSource.refreshAsync().then(function () {
       console.log(dataSource.name + ': Refreshed Successfully');
-    });
-	  /*for (let dataSourceId in dashboarddatasources) {
+    });*/
+	  for (let dataSourceId in dashboarddatasources) {
 		
                const dataSource = dataSources[dataSourceId];
 	  
 		dataSource.refreshAsync().then(function () {
 		  console.log(dataSource.name + ': Refreshed Successfully');
 		});
-	}*/
+	}
   }
 
   // Constructs UI that displays all the dataSources in this dashboard
