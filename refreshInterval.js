@@ -59,15 +59,17 @@
   // Refreshes the given dataSource.
   //function refreshDataSource (dataSource) {
   function refreshDataSource (dataSource) {
-	
+	alert("test");
+	alert(dataSource);
    /* dataSource.refreshAsync().then(function () {
       console.log(dataSource.name + ': Refreshed Successfully');
     });*/
 	  for (let dataSourceId in dashboarddatasources) {
 		
-               const dataSource = dataSources[dataSourceId];
-	  
-		dataSource.refreshAsync().then(function () {
+               const dataSourceToRefresh = dataSources[dataSourceId];
+	       alert(dataSourceToRefresh);
+		dataSourceToRefresh.refreshAsync().then(function () {
+			alert("fn call");
 		  console.log(dataSource.name + ': Refreshed Successfully');
 		});
 	}
